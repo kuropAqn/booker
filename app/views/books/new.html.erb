@@ -1,45 +1,40 @@
-#html
-  <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>WebCampBackEndNew</title>
-    #<link rel="stylesheet" href="booker.css" />
-  </head>
-  <body>
-    <h1>
-      Books
-    </h1>
-  </body>
-  <thread>
-</html>
+<h3>Books</h3>
+<table>
+  <thead>
+    <tr>
+    <th>Title</th>
+    <th>Body</th>
+    </tr>
+  </tread>
 
+  <tbody>
+  <% @books.each do |book| %>
+    <tr>
+      <td>
+        <%= book.title %>
+      </td>
+      <td>
+        <%= book.body %>
+      </td>
+      <td>
+        <%= link_to "show", book_path(book.id) %>
+        <%= link_to "edit", edit_book_path(book.id) %>
+        <%= link_to "destroy", book, method: :delete, data: {confirm: "Are you sure?"} %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
+<h3>New Book<h3>
+<%= form_with model: @books, url: '/books', method: :post do |f| %>
 
-<h1>新規投稿</h1>
-
-<%
-=begin
-%>
-# <% if @Book.errors.any? %>
-#  <%= @book.errors.count %>件のエラーが発生しました
-#  <ul>
-#    <% @book.errors.full_messages.each do |message| %>
-#      <li><%= message %></li>
-#    <% end %>
-#  </ul>
-<%
-=end
-%>
-
-
-<%= form_with model: @book, url: '/books', method: :post do |f| %>
-
-  <h4>タイトル</h4>
+  <h4>Title</h4>
   <%= f.text_field :title %>
 	
-  <h4>本文</h4>
+  <h4>Body</h4>
   <%= f.text_area :body %>
 	
-  <%= f.submit '投稿' %>
+  <%= f.submit 'Creats Book' %>
 
 <% end %>

@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   root to: 'homes#top'
-  #get 'homes/new'
-  #get 'homes/show'
-  #get 'homes/edit'
-  #get 'books/top'
   resources :books
 
   
