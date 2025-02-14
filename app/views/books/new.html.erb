@@ -1,2 +1,45 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+#html
+  <html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>WebCampBackEndNew</title>
+    #<link rel="stylesheet" href="booker.css" />
+  </head>
+  <body>
+    <h1>
+      Books
+    </h1>
+  </body>
+  <thread>
+</html>
+
+
+
+<h1>新規投稿</h1>
+
+<%
+=begin
+%>
+# <% if @Book.errors.any? %>
+#  <%= @book.errors.count %>件のエラーが発生しました
+#  <ul>
+#    <% @book.errors.full_messages.each do |message| %>
+#      <li><%= message %></li>
+#    <% end %>
+#  </ul>
+<%
+=end
+%>
+
+
+<%= form_with model: @book, url: '/books', method: :post do |f| %>
+
+  <h4>タイトル</h4>
+  <%= f.text_field :title %>
+	
+  <h4>本文</h4>
+  <%= f.text_area :body %>
+	
+  <%= f.submit '投稿' %>
+
+<% end %>

@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   #get 'homes/show'
   #get 'homes/edit'
   #get 'books/top'
-  get 'books/new'
-  get 'books/show'
-  get 'books/edit'
+  resources :books
 
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
