@@ -35,7 +35,7 @@ end
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to '/new'
+    redirect_to '/books/new'
   end
 
   def create
