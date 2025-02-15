@@ -24,7 +24,6 @@
 
 
 <div style="display: flex;">
-  <%= link_to "Edit", edit_book_path(@book.id), style: "margin: 0px 0px 10px 10px ;" %>
-  <span>' | '</span>
+  <%= link_to "Show", book_path(@book.id) %>
   <%= link_to "Back", books_path %>
 </div>
